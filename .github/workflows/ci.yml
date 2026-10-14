@@ -16,5 +16,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Run Python program
-        run: python hello.py
+      - name: Run Python programs
+        run: |
+          python hello.py
+          python calculator.py
