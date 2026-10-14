@@ -1,10 +1,10 @@
 
 name: Python CI
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
-  run-python:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,7 +16,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Run Python programs
-        run: |
-          python hello.py
-          python calculator.py
+      - name: Install pytest
+        run: pip install pytest
+
+      - name: Test calculator
+        run: pytest -v test_calculator.py
